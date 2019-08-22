@@ -1,0 +1,34 @@
+<h2><%= @cocktail.name.capitalize %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ingredient</th>
+      <th>Dose</th>
+      <th>Delete</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% ingredients = [] %>
+  <% @cocktail.ingredients.each {|d| ingredients << d.name} %>
+  <% doses = [] %>
+  <% @cocktail.doses.each {|d| doses << d.description} %>
+  <% recipe = ingredients.zip doses %>
+  <tbody>
+    <% recipe.each do |i| %>
+    <tr>
+      <td><%= i.first %></td>
+      <td><%= i.last %></td>
+      <% @doses.each do |dose|%>
+        <td><%= link_to 'delete', dose_path(dose.id), method: :delete %></td>
+      <% end %>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add a recipe for this cocktail!', new_cocktail_dose_path(@cocktail) %>
+<br>
+<%= link_to 'Back to cocktails', root_path %>
+

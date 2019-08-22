@@ -1,0 +1,22 @@
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.error_notification %>
+
+  <% if @cocktail.errors.any? %>
+    <div class="alert alert-danger">
+      <h3>Please fix these problems:</h3>
+      <ul>
+      <% @cocktail.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

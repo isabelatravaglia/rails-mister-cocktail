@@ -1,0 +1,23 @@
+<%= simple_form_for [@cocktail, @dose], url: cocktail_doses_path do |f| %>
+  <%= f.error_notification %>
+
+  <% if @dose.errors.any? %>
+    <div class="alert alert-danger">
+      <h3>Please fix these problems:</h3>
+      <ul>
+      <% @dose.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
