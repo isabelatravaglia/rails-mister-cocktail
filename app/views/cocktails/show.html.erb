@@ -1,6 +1,6 @@
 <h2><%#= @cocktail.name.capitalize %></h2>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo_or_fallback(@cocktail) %>)">
   <%= @cocktail.name.capitalize %>
 </div>
 
@@ -32,7 +32,9 @@
   </tbody>
 </table>
 
-<%= link_to 'Add a recipe for this cocktail!', new_cocktail_dose_path(@cocktail) %>
+<%= link_to 'Add an ingredient for this cocktail!', new_cocktail_dose_path(@cocktail) %>
+<br>
+<%= link_to 'Change the picture', edit_cocktail_path(@cocktail) %>
 <br>
 <%= link_to 'Back to cocktails', root_path %>
 

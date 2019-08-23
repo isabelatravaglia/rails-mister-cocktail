@@ -1,5 +1,8 @@
 <h2>Our Cocktails</h2>
 <%= link_to 'Create a new cocktail', new_cocktail_path(@cocktail), class: "btn btn-primary"%>
+<%= cl_image_tag("san_fran",
+      width: 400, height: 300, crop: :fill) %>
+
 
 <table>
   <thead>
